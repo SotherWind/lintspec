@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build artifacts
+dist/
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# VitePress build
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Temp
+tmp/
+.cache/
+
+# Claude Code (personal local settings; shared .claude/settings.json stays tracked)
+.claude/settings.local.json
