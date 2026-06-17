@@ -1,0 +1,54 @@
+{
+  "name": "@lintspec/markdownlint-config",
+  "version": "1.0.0",
+  "description": "Shareable markdownlint config used by lintspec.",
+  "author": "SotherWind",
+  "license": "MIT",
+  "homepage": "https://github.com/SotherWind/lintspec/tree/main/packages/markdownlint-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SotherWind/lintspec.git",
+    "directory": "packages/markdownlint-config"
+  },
+  "bugs": {
+    "url": "https://github.com/SotherWind/lintspec/issues"
+  },
+  "keywords": [
+    "markdownlint",
+    "markdownlint-config",
+    "lintspec"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "dev": "tsc -w",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "markdownlint": "^0.34.0"
+  },
+  "devDependencies": {
+    "markdownlint": "^0.34.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^6.0.2",
+    "vitest": "^2.1.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}
