@@ -1,12 +1,14 @@
 import type { ESLint, Linter, Rule } from 'eslint';
 
 import pkg from '../package.json' with { type: 'json' };
+import noBroadSemanticVersioning from './rules/no-broad-semantic-versioning.js';
 import noHttpUrl from './rules/no-http-url.js';
 import noSecretInfo from './rules/no-secret-info.js';
 
 const PLUGIN_NAME = '@lintspec';
 
 const rules: Record<string, Rule.RuleModule> = {
+  'no-broad-semantic-versioning': noBroadSemanticVersioning,
   'no-http-url': noHttpUrl,
   'no-secret-info': noSecretInfo,
 };
