@@ -24,8 +24,8 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@types/node": "^22.7.0",
     "@lintspec/eslint-config": "workspace:*",
+    "@types/node": "^22.7.0",
     "husky": "^9.1.6",
     "markdownlint-cli2": "^0.14.0",
     "prettier": "^3.3.3",
