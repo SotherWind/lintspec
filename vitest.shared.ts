@@ -15,5 +15,10 @@ export default defineConfig({
     include: ['test/**/*.test.ts'],
     testTimeout: 30_000,
     hookTimeout: 30_000,
+    // Mid-build state: a freshly-scaffolded package may not have any
+    // test files yet (tests typically land a few commits later). Without
+    // this, `pnpm -r test` exits 1 from the empty package and the
+    // pre-push hook blocks the whole branch.
+    passWithNoTests: true,
   },
 });
