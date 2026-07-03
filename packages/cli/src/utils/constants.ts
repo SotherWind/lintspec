@@ -1,0 +1,105 @@
+// dist/utils/constants.js (and src/utils/constants.ts) are both two levels deep,
+// so the relative path to the package manifest is identical at build & runtime.
+import pkg from '../../package.json' with { type: 'json' };
+
+export const UNICODE = {
+  success: 'OK',
+  failure: 'FAIL',
+} as const;
+
+/** npm package name, e.g. `@lintspec/cli` (used for install / update). */
+export const PKG_NAME: string = pkg.name;
+
+/** Package version. */
+export const PKG_VERSION: string = pkg.version;
+
+/** The user-facing command name / config-file prefix, e.g. `lintspec`. */
+export const CLI_NAME = 'lintspec';
+
+/**
+ * Project types map 1:1 to `@lintspec/eslint-config` export subpaths
+ * (`index` means the package root export).
+ */
+export const PROJECT_TYPES: Array<{ name: string; value: string }> = [
+  { name: 'Plain project - no React/Vue/Node.js (JavaScript)', value: 'index' },
+  { name: 'Plain project - no React/Vue/Node.js (TypeScript)', value: 'typescript' },
+  { name: 'React project (JavaScript)', value: 'react' },
+  { name: 'React project (TypeScript)', value: 'typescript/react' },
+  { name: 'Vue project (JavaScript)', value: 'vue' },
+  { name: 'Vue project (TypeScript)', value: 'typescript/vue' },
+  { name: 'Node.js project (JavaScript)', value: 'node' },
+  { name: 'Node.js project (TypeScript)', value: 'typescript/node' },
+  { name: 'Legacy project on ES5 or earlier JavaScript', value: 'es5' },
+];
+
+/** ESLint scan file extensions. */
+export const ESLINT_FILE_EXT: string[] = ['.js', '.jsx', '.ts', '.tsx', '.vue', '.mjs', '.cjs'];
+
+/**
+ * ESLint flat-config global ignore globs.
+ * (ESLint 9 dropped `.eslintignore`; ignores now live in the flat config.)
+ */
+export const ESLINT_IGNORE_GLOBS: string[] = [
+  '**/node_modules/**',
+  '**/build/**',
+  '**/dist/**',
+  '**/coverage/**',
+  '**/es/**',
+  '**/lib/**',
+  '**/*.min.js',
+  '**/*-min.js',
+  '**/*.bundle.js',
+];
+
+/** Stylelint scan file extensions. */
+export const STYLELINT_FILE_EXT: string[] = ['.css', '.scss', '.less', '.acss'];
+
+/** Stylelint ignore patterns. */
+export const STYLELINT_IGNORE_PATTERN: string[] = [
+  '**/node_modules/**',
+  '**/build/**',
+  '**/dist/**',
+  '**/coverage/**',
+  '**/es/**',
+  '**/lib/**',
+  '**/*.min.css',
+  '**/*-min.css',
+  '**/*.bundle.css',
+];
+
+/** markdownlint scan file extensions. */
+export const MARKDOWN_LINT_FILE_EXT: string[] = ['.md'];
+
+/**
+ * markdownlint ignore patterns: micromatch globs.
+ *
+ * Used as fast-glob's `ignore` in `lintspec scan/fix`, AND emitted into the
+ * generated `.markdownlint-cli2.cjs`'s `ignores` field which markdownlint-cli2
+ * matches with micromatch. Globs that work in both use the `**` directory
+ * wildcard around the ignored directory name.
+ */
+export const MARKDOWN_LINT_IGNORE_PATTERN: string[] = [
+  '**/node_modules/**',
+  '**/build/**',
+  '**/dist/**',
+  '**/coverage/**',
+  '**/es/**',
+  '**/lib/**',
+];
+
+/** Prettier scan file extensions (union of the lint extensions). */
+export const PRETTIER_FILE_EXT: string[] = [
+  ...STYLELINT_FILE_EXT,
+  ...ESLINT_FILE_EXT,
+  ...MARKDOWN_LINT_FILE_EXT,
+];
+
+/** Prettier ignore patterns. */
+export const PRETTIER_IGNORE_PATTERN: string[] = [
+  'node_modules/**/*',
+  'build/**/*',
+  'dist/**/*',
+  'lib/**/*',
+  'es/**/*',
+  'coverage/**/*',
+];
