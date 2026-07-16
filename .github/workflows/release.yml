@@ -1,0 +1,53 @@
+name: Release
+
+# Changesets flow: pushing changesets to main opens/updates a "Version Packages"
+# PR; merging that PR publishes the changed packages to npm and tags each one.
+on:
+  push:
+    branches: [main]
+
+# Never run two releases at once (a second push must wait, not race the publish).
+concurrency: ${{ github.workflow }}
+
+permissions:
+  contents: write # push the version-bump commit + tags, create GitHub Releases
+  pull-requests: write # open/update the "Version Packages" PR
+  id-token: write # npm provenance (supply-chain attestation)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # Skip husky install: pre-commit hooks exist to catch HUMAN style mistakes.
+    # The changesets bot's "Version Packages" commit is deterministic tooling
+    # output (JSON.stringify'd package.json, generated CHANGELOG.md) and won't
+    # match the project's prettier/markdownlint rules — letting hooks run here
+    # only blocks releases on cosmetic disagreements.
+    env:
+      HUSKY: '0'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Create release PR or publish to npm
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version-packages
+          publish: pnpm run release
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # changesets/action does token-based npm auth ONLY when NPM_TOKEN is in
+          # its own env. Writing the token to ~/.npmrc in a separate step is not
+          # enough — without this var the action silently falls back to OIDC
+          # trusted publishing (not configured here) and every publish 404s.
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
