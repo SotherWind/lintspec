@@ -1,6 +1,6 @@
 {
   "name": "@lintspec/markdownlint-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Shareable markdownlint config used by lintspec.",
   "author": "SotherWind",
   "license": "MIT",

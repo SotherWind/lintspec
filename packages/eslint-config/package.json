@@ -1,6 +1,6 @@
 {
   "name": "@lintspec/eslint-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Shareable ESLint 10 flat-config presets used by lintspec (JS/TS x React/Vue/Node + essential softened variants).",
   "author": "SotherWind",
   "license": "MIT",

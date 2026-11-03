@@ -1,6 +1,6 @@
 {
   "name": "@lintspec/eslint-plugin",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Custom ESLint rules used by lintspec: no-http-url, no-secret-info, no-broad-semantic-versioning, no-js-in-ts-project.",
   "author": "SotherWind",
   "license": "MIT",
