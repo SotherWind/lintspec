@@ -1,7 +1,7 @@
 {
   "name": "@lintspec/eslint-config",
   "version": "1.0.0",
-  "description": "Shareable ESLint 9 flat-config presets used by lintspec (JS/TS x React/Vue/Node + essential softened variants).",
+  "description": "Shareable ESLint 10 flat-config presets used by lintspec (JS/TS x React/Vue/Node + essential softened variants).",
   "author": "SotherWind",
   "license": "MIT",
   "homepage": "https://github.com/SotherWind/lintspec/tree/main/packages/eslint-config",
@@ -54,30 +54,30 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "eslint-plugin-import-x": "^4.17.1",
     "globals": "^17.14.0"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-n": "^17.10.3 || ^18.0.0",
-    "eslint-plugin-react": "^7.37.1",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-vue": "^9.28.0 || ^10.0.0",
+    "@eslint-react/eslint-plugin": "^5.28.8",
+    "eslint": "^10.0.0",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
+    "eslint-plugin-n": "^18.5.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-vue": "^10.12.0",
     "typescript": "^6.0.0",
-    "typescript-eslint": "^8.8.1",
-    "vue-eslint-parser": "^9.4.3 || ^10.3.0"
+    "typescript-eslint": "^8.72.1",
+    "vue-eslint-parser": "^10.4.1"
   },
   "peerDependenciesMeta": {
-    "eslint-plugin-jsx-a11y": {
+    "@eslint-react/eslint-plugin": {
+      "optional": true
+    },
+    "eslint-plugin-jsx-a11y-x": {
       "optional": true
     },
     "eslint-plugin-n": {
-      "optional": true
-    },
-    "eslint-plugin-react": {
       "optional": true
     },
     "eslint-plugin-react-hooks": {
@@ -97,12 +97,11 @@
     }
   },
   "devDependencies": {
-    "@types/eslint": "^9.6.1",
-    "eslint": "^9.39.4",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "@eslint-react/eslint-plugin": "^5.28.8",
+    "eslint": "^10.14.0",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
     "eslint-plugin-n": "^18.5.0",
-    "eslint-plugin-react": "^7.37.1",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-vue": "^10.12.0",
     "rimraf": "^6.1.3",
     "typescript": "^6.0.2",

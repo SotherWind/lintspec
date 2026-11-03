@@ -30,6 +30,7 @@ const packageNamesToRemove = [
 // Remove dependencies starting with these prefixes.
 const packagePrefixesToRemove = [
   '@commitlint/',
+  '@eslint-react/',
   '@typescript-eslint/',
   'eslint-',
   'stylelint-',

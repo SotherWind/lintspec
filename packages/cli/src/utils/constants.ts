@@ -37,7 +37,7 @@ export const ESLINT_FILE_EXT: string[] = ['.js', '.jsx', '.ts', '.tsx', '.vue', 
 
 /**
  * ESLint flat-config global ignore globs.
- * (ESLint 9 dropped `.eslintignore`; ignores now live in the flat config.)
+ * (ESLint 9+ dropped `.eslintignore`; ignores now live in the flat config.)
  */
 export const ESLINT_IGNORE_GLOBS: string[] = [
   '**/node_modules/**',

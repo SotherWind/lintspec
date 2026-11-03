@@ -3,7 +3,7 @@ import importXPlugin from 'eslint-plugin-import-x';
 
 /**
  * Module/import rules via eslint-plugin-import-x (the community fork of
- * eslint-plugin-import with better flat-config + ESLint 9 support).
+ * eslint-plugin-import with better flat-config + ESLint 9/10 support).
  */
 const imports: Linter.Config = {
   name: '@lintspec/imports',

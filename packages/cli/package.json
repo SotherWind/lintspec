@@ -57,7 +57,7 @@
     "commander": "^15.0.0",
     "cross-spawn": "^7.0.6",
     "ejs": "^7.0.2",
-    "eslint": "^9.39.4",
+    "eslint": "^10.14.0",
     "execa": "^10.2.1",
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.4.1",

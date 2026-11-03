@@ -32,7 +32,6 @@ export default async function init(options: InitOptions): Promise<void> {
   const checkVersionUpdate = options.checkVersionUpdate || false;
   const disableNpmInstall = options.disableNpmInstall || false;
   const pkgPath = path.resolve(cwd, 'package.json');
-  let pkg: PKG = fs.readJSONSync(pkgPath);
   let step = 0;
 
   if (!isTest && checkVersionUpdate) {
@@ -71,7 +70,7 @@ export default async function init(options: InitOptions): Promise<void> {
 
   if (!isTest) {
     log.info(messages.stepConflict(++step));
-    pkg = await conflictResolve(cwd, options.rewriteConfig);
+    await conflictResolve(cwd, options.rewriteConfig);
     log.success(messages.stepConflictDone(step));
 
     if (!disableNpmInstall) {
@@ -82,7 +81,7 @@ export default async function init(options: InitOptions): Promise<void> {
   }
 
   // Re-read: install / conflict-resolve may have rewritten package.json.
-  pkg = fs.readJSONSync(pkgPath);
+  const pkg: PKG = fs.readJSONSync(pkgPath);
   if (!pkg.scripts) pkg.scripts = {};
   pkg.scripts[`${CLI_NAME}-scan`] ??= `${CLI_NAME} scan`;
   pkg.scripts[`${CLI_NAME}-fix`] ??= `${CLI_NAME} fix`;
