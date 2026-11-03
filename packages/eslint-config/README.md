@@ -1,6 +1,6 @@
 # @lintspec/eslint-config
 
-Shareable [ESLint 9 flat-config](https://eslint.org/docs/latest/use/configure/configuration-files) presets used by the `lintspec` toolchain. 17 entry points covering JS / TS × React / Vue / Node, plus softened `essential/*` variants for legacy codebases.
+Shareable [ESLint 10 flat-config](https://eslint.org/docs/latest/use/configure/configuration-files) presets used by the `lintspec` toolchain. 17 entry points covering JS / TS × React / Vue / Node, plus softened `essential/*` variants for legacy codebases.
 
 ## Install
 
@@ -56,8 +56,8 @@ The framework plugins are **optional `peerDependencies`** — install only the o
 
 | If you use… | Also install |
 | --- | --- |
-| `react`, `typescript/react`, `essential/react`, `essential/typescript/react` | `eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y` |
-| `jsx-a11y` | `eslint-plugin-jsx-a11y` |
+| `react`, `typescript/react`, `essential/react`, `essential/typescript/react` | `@eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-jsx-a11y-x` |
+| `jsx-a11y` | `eslint-plugin-jsx-a11y-x` |
 | `vue`, `typescript/vue`, `essential/vue`, `essential/typescript/vue` | `eslint-plugin-vue vue-eslint-parser` |
 | `node`, `typescript/node` | `eslint-plugin-n` |
 | any `typescript/*` or `typescript` entry | `typescript typescript-eslint` |
@@ -67,16 +67,17 @@ For example, a TypeScript + React project:
 ```sh
 pnpm add -D @lintspec/eslint-config eslint \
   typescript typescript-eslint \
-  eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
+  @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-jsx-a11y-x
 ```
 
 If an entry is imported without its peer plugin installed, ESLint throws a clear `Cannot find module 'eslint-plugin-…'` naming exactly what is missing.
 
 ## Toolchain compatibility
 
-- **ESLint 9** is pinned for now: `eslint-plugin-react@7` and `eslint-plugin-jsx-a11y@6` still use `context` APIs removed in ESLint 10. The React presets will move to ESLint 10 together with their replacements.
+- **ESLint 10** is the baseline. React rules come from `@eslint-react/eslint-plugin`; JSX a11y rules come from `eslint-plugin-jsx-a11y-x`; hooks rules stay on the official `eslint-plugin-react-hooks` 7.
 - **TypeScript 6** is pinned: TypeScript 7.0 does not expose the compiler API required by `typescript-eslint`. Lint with TypeScript 6 and run a TS 7 build side-by-side if needed.
-- Vue 10 and `eslint-plugin-n` 18 are the tested versions; peer ranges also accept Vue 9 / `eslint-plugin-n` 17 for incremental upgrades.
+- Vue 10 and `eslint-plugin-n` 18 are the tested versions.
+- React rule IDs changed from `react/*` to `@eslint-react/*`; JSX a11y rule IDs changed from `jsx-a11y/*` to `jsx-a11y-x/*`. Update inline disable comments and overrides accordingly.
 
 ## License
 

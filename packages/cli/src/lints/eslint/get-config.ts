@@ -12,7 +12,7 @@ function hasUserConfig(cwd: string, pkg: PKG): boolean {
 }
 
 /**
- * Build the ESLint 9 constructor options.
+ * Build the ESLint 10 constructor options.
  *
  * - If the project has its own flat config, let ESLint discover it.
  * - Otherwise synthesise a `baseConfig` from the matching

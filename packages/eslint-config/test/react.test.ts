@@ -21,16 +21,35 @@ export default Demo;
     expect(result.fatalCount).toBe(0);
   });
 
-  it('flags duplicate JSX props', async () => {
+  it('flags missing keys in mapped JSX', async () => {
     const code = `import React from 'react';
 
+const items = [1, 2, 3];
+
 function Demo() {
-  return <div id="a" id="b" />;
+  return <ul>{items.map((item) => <li>{item}</li>)}</ul>;
 }
 
 export default Demo;
 `;
     const result = await runLint(react, code, 'demo.jsx');
-    expect(result.ruleIds).toContain('react/jsx-no-duplicate-props');
+    expect(result.ruleIds).toContain('@eslint-react/no-missing-key');
+  });
+
+  it('uses the official react-hooks rules', async () => {
+    const code = `import React from 'react';
+
+function Demo({ ok }) {
+  if (ok) {
+    const [value] = React.useState(0);
+    return <div>{value}</div>;
+  }
+  return <div />;
+}
+
+export default Demo;
+`;
+    const result = await runLint(react, code, 'demo.jsx');
+    expect(result.ruleIds).toContain('react-hooks/rules-of-hooks');
   });
 });

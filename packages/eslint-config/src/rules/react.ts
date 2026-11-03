@@ -1,38 +1,24 @@
+import eslintReact from '@eslint-react/eslint-plugin';
 import type { ESLint, Linter } from 'eslint';
-import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 
 /**
- * React + react-hooks rules. Composes eslint-plugin-react's flat-config
- * `recommended` with eslint-plugin-react-hooks' rules.
+ * React rules via @eslint-react/eslint-plugin's recommended flat config.
+ *
+ * @eslint-react is a rewrite of eslint-plugin-react and requires ESLint 10.
+ * Its preset ships its own hooks rules; we disable those and keep the official
+ * eslint-plugin-react-hooks rules to preserve the previous behaviour.
  */
 const reactConfig: Linter.Config[] = [
-  (react.configs?.flat?.recommended as Linter.Config | undefined) ?? {
-    name: '@lintspec/react/recommended-fallback',
-  },
+  eslintReact.configs.recommended as unknown as Linter.Config,
   {
     name: '@lintspec/react',
     plugins: {
       'react-hooks': reactHooks as unknown as ESLint.Plugin,
     },
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
-    },
-    settings: {
-      react: { version: 'detect' },
-    },
     rules: {
-      'react/jsx-uses-react': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
-      'react/jsx-key': 'error',
-      'react/jsx-no-duplicate-props': 'error',
-      'react/jsx-no-undef': 'error',
-      'react/no-deprecated': 'warn',
-      'react/no-direct-mutation-state': 'error',
-      'react/self-closing-comp': 'warn',
+      '@eslint-react/rules-of-hooks': 'off',
+      '@eslint-react/exhaustive-deps': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
     },

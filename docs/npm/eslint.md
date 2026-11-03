@@ -4,7 +4,7 @@
 lintspec JavaScript / TypeScript / Node 规范
 :::
 
-基于 **ESLint 9 扁平配置（flat config）** 的可共享预设，覆盖 `JavaScript` / `TypeScript` × `React` / `Vue` / `Node.js`，并提供把风格规则降级为 `warn` 的 `essential/*` 变体。
+基于 **ESLint 10 扁平配置（flat config）** 的可共享预设，覆盖 `JavaScript` / `TypeScript` × `React` / `Vue` / `Node.js`，并提供把风格规则降级为 `warn` 的 `essential/*` 变体。
 
 ## 安装
 
@@ -54,8 +54,8 @@ essential 变体共 7 个，与上方一一对应：`essential`、`essential/es5
 
 | 用到的入口 | 需额外安装的 peer 插件 |
 | --- | --- |
-| `react` / `typescript/react` / `essential/react` / `essential/typescript/react` | `eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y` |
-| `jsx-a11y`（独立） | `eslint-plugin-jsx-a11y` |
+| `react` / `typescript/react` / `essential/react` / `essential/typescript/react` | `@eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-jsx-a11y-x` |
+| `jsx-a11y`（独立） | `eslint-plugin-jsx-a11y-x` |
 | `vue` / `typescript/vue` / `essential/vue` / `essential/typescript/vue` | `eslint-plugin-vue vue-eslint-parser` |
 | `node` / `typescript/node` | `eslint-plugin-n` |
 | 任意 `typescript` 或 `typescript/*` 入口 | `typescript typescript-eslint` |
@@ -76,7 +76,7 @@ export default [...config];
 
 ```shell
 pnpm add -D @lintspec/eslint-config eslint \
-  eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
+  @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-jsx-a11y-x
 ```
 
 ```js
@@ -84,7 +84,7 @@ import react from '@lintspec/eslint-config/react';
 export default [...react];
 ```
 
-jsx-a11y 已折叠进 `react` 预设，无需再叠加 `/jsx-a11y`（该入口仅在你想单独使用无障碍规则时才需要）。
+React 规则来自 `@eslint-react/eslint-plugin`（前缀 `@eslint-react/`），a11y 规则来自 `eslint-plugin-jsx-a11y-x`（前缀 `jsx-a11y-x/`）；hooks 规则仍由官方 `eslint-plugin-react-hooks` 提供。jsx-a11y 已折叠进 `react` 预设，无需再叠加 `/jsx-a11y`（该入口仅在你想单独使用无障碍规则时才需要）。
 
 ### JavaScript + Vue 3
 
@@ -125,7 +125,7 @@ export default [...ts];
 
 ```shell
 pnpm add -D @lintspec/eslint-config eslint typescript typescript-eslint \
-  eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
+  @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-jsx-a11y-x
 ```
 
 ```js

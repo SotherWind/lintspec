@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A monorepo of shareable linter configurations and a single CLI (`lintspec`) that initializes and runs them in a project. Built on top of the latest supported versions of each linter (ESLint 9 flat config, Stylelint 17, Prettier 3, commitlint 21, markdownlint 0.42).
+A monorepo of shareable linter configurations and a single CLI (`lintspec`) that initializes and runs them in a project. Built on top of the latest supported versions of each linter (ESLint 10 flat config, Stylelint 17, Prettier 3, commitlint 21, markdownlint 0.42).
 
 ## Packages
 

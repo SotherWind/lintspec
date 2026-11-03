@@ -1,6 +1,6 @@
 # @lintspec/eslint-plugin
 
-Custom ESLint rules used by the `lintspec` toolchain. Targets **ESLint 9 flat config**.
+Custom ESLint rules used by the `lintspec` toolchain. Targets **ESLint 9/10 flat config**.
 
 ## Install
 

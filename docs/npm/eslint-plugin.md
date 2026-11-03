@@ -1,6 +1,6 @@
 # @lintspec/eslint-plugin
 
-除了本包，你需要同时安装 [ESLint](https://eslint.org/)。本插件面向 **ESLint 9 扁平配置（flat config）**。
+除了本包，你需要同时安装 [ESLint](https://eslint.org/)。本插件面向 **ESLint 9/10 扁平配置（flat config）**。
 
 ```shell
 npm install @lintspec/eslint-plugin eslint --save-dev

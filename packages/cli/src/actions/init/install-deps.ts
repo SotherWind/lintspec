@@ -35,17 +35,16 @@ export interface ProjectDepsConfig {
 
 /**
  * Version ranges to pin so npm/pnpm don't pull a major that the config doesn't
- * support yet. Mirrors the versions tested with `@lintspec/eslint-config`
- * (its peer ranges also accept the previous major for Vue / eslint-plugin-n).
+ * support yet. Mirrors the versions tested with `@lintspec/eslint-config`.
  * Keep this in sync when the tested majors bump.
  */
 const PINNED_VERSIONS: Readonly<Record<string, string>> = {
-  eslint: '^9.0.0',
+  eslint: '^10.0.0',
   typescript: '^6.0.2',
   'typescript-eslint': '^8.72.1',
-  'eslint-plugin-react': '^7.37.1',
-  'eslint-plugin-react-hooks': '^5.0.0',
-  'eslint-plugin-jsx-a11y': '^6.10.0',
+  '@eslint-react/eslint-plugin': '^5.28.8',
+  'eslint-plugin-react-hooks': '^7.1.1',
+  'eslint-plugin-jsx-a11y-x': '^0.2.0',
   'eslint-plugin-vue': '^10.12.0',
   'vue-eslint-parser': '^10.4.1',
   'eslint-plugin-n': '^18.5.0',
@@ -82,9 +81,9 @@ export function projectDepsToInstall(config: ProjectDepsConfig): string[] {
       deps.add('typescript-eslint');
     }
     if (isReact) {
-      deps.add('eslint-plugin-react');
+      deps.add('@eslint-react/eslint-plugin');
       deps.add('eslint-plugin-react-hooks');
-      deps.add('eslint-plugin-jsx-a11y');
+      deps.add('eslint-plugin-jsx-a11y-x');
     }
     if (isVue) {
       deps.add('eslint-plugin-vue');

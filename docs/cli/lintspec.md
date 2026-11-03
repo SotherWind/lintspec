@@ -38,8 +38,8 @@ npm install -g @lintspec/cli
 具体会做以下事情：
 
 - 安装各种依赖：包括 `Linter` 依赖，如 [ESLint](https://eslint.org/)、[stylelint](https://stylelint.io/)、[commitlint](https://commitlint.js.org/#/)、[markdownlint](https://github.com/DavidAnson/markdownlint) 等；配置依赖，如 [@lintspec/eslint-config](https://www.npmjs.com/package/@lintspec/eslint-config)、[@lintspec/stylelint-config](https://www.npmjs.com/package/@lintspec/stylelint-config)、[@lintspec/commitlint-config](https://www.npmjs.com/package/@lintspec/commitlint-config)、[@lintspec/markdownlint-config](https://www.npmjs.com/package/@lintspec/markdownlint-config) 等
-- 写入各种配置文件（均为 ESLint 9 flat config / ESM 形式），包括：
-  - `eslint.config.mjs`：ESLint 扁平配置（导入 `@lintspec/eslint-config`，忽略项内联其中——ESLint 9 已不再使用 `.eslintignore`）
+- 写入各种配置文件（均为 ESLint 10 flat config / ESM 形式），包括：
+  - `eslint.config.mjs`：ESLint 扁平配置（导入 `@lintspec/eslint-config`，忽略项内联其中——ESLint 9 起已不再使用 `.eslintignore`）
   - `stylelint.config.mjs`、`.stylelintignore`：stylelint 配置（继承 `@lintspec/stylelint-config`）及黑名单文件
   - `commitlint.config.mjs`：commitlint 配置（继承 `@lintspec/commitlint-config`）
   - `.markdownlint-cli2.cjs`：markdownlint-cli2 配置（`module.exports = { config: require('@lintspec/markdownlint-config').default, ignores: [...] }`——共享配置为 ESM-only，故用 `.cjs` 透传其 default 导出作为 `config`；按 cli2 约定该文件优先级高于 `.markdownlint.cjs`，会被 markdownlint-cli2 及 VS Code markdownlint 扩展同时读取），忽略项内联在 `ignores` 字段中（不再单独生成 `.markdownlintignore`）
