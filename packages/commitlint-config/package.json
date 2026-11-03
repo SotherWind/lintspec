@@ -1,6 +1,6 @@
 {
   "name": "@lintspec/commitlint-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Shareable commitlint config used by lintspec — conventional-commits based.",
   "author": "SotherWind",
   "license": "MIT",

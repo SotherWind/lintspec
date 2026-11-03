@@ -1,6 +1,6 @@
 {
   "name": "@lintspec/cli",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "One-command lint toolchain (ESLint / Stylelint / markdownlint / Prettier / commitlint) for the lintspec spec.",
   "type": "module",
   "author": "SotherWind",
