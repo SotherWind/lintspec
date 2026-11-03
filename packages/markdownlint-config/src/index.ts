@@ -1,7 +1,7 @@
 import type { Configuration } from 'markdownlint';
 
 /**
- * Shareable markdownlint configuration. Targets markdownlint 0.34+ rule names
+ * Shareable markdownlint configuration. Targets markdownlint 0.42+ rule names
  * (e.g. no-duplicate-heading instead of the legacy no-duplicate-header alias).
  */
 const config: Configuration = {
@@ -20,6 +20,8 @@ const config: Configuration = {
   'no-inline-html': false,
   'no-duplicate-heading': false,
   'first-line-heading': false,
+  // New in markdownlint 0.42; table alignment is handled by Prettier/formatters.
+  'table-column-style': false,
 
   // Proper-name capitalisation list (intentionally generic, no brand attribution)
   'proper-names': {

@@ -20,4 +20,17 @@ const name = 'demo';
     const result = await runLint(vueConfig, code, 'demo.vue');
     expect(result.fatalCount).toBe(0);
   });
+
+  it('provides browser globals to .vue files', async () => {
+    const code = `<template>
+  <div>{{ title }}</div>
+</template>
+
+<script setup>
+const title = window.document.title;
+</script>
+`;
+    const result = await runLint(vueConfig, code, 'demo-globals.vue');
+    expect(result.ruleIds).not.toContain('no-undef');
+  });
 });

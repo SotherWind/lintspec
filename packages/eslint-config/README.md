@@ -72,6 +72,12 @@ pnpm add -D @lintspec/eslint-config eslint \
 
 If an entry is imported without its peer plugin installed, ESLint throws a clear `Cannot find module 'eslint-plugin-…'` naming exactly what is missing.
 
+## Toolchain compatibility
+
+- **ESLint 9** is pinned for now: `eslint-plugin-react@7` and `eslint-plugin-jsx-a11y@6` still use `context` APIs removed in ESLint 10. The React presets will move to ESLint 10 together with their replacements.
+- **TypeScript 6** is pinned: TypeScript 7.0 does not expose the compiler API required by `typescript-eslint`. Lint with TypeScript 6 and run a TS 7 build side-by-side if needed.
+- Vue 10 and `eslint-plugin-n` 18 are the tested versions; peer ranges also accept Vue 9 / `eslint-plugin-n` 17 for incremental upgrades.
+
 ## License
 
 MIT © SotherWind

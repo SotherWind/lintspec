@@ -42,22 +42,22 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@stylistic/stylelint-plugin": "^5.2.0",
-    "postcss-less": "^6.0.0",
+    "@stylistic/stylelint-plugin": "^5.3.1",
+    "postcss-less": "^7.0.1",
     "stylelint-config-recommended-scss": "^17.0.1",
     "stylelint-config-standard": "^40.0.0",
-    "stylelint-scss": "^7.2.0"
+    "stylelint-scss": "^7.4.0"
   },
   "peerDependencies": {
-    "stylelint": "^17.0.0"
+    "stylelint": "^17.6.0"
   },
   "devDependencies": {
-    "rimraf": "^6.0.1",
-    "stylelint": "^17.13.0",
+    "rimraf": "^6.1.3",
+    "stylelint": "^17.16.0",
     "typescript": "^6.0.2",
-    "vitest": "^2.1.1"
+    "vitest": "^5.0.5"
   },
   "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+    "node": "^22.13.0 || >=24.0.0"
   }
 }

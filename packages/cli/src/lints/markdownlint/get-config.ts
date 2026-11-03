@@ -2,11 +2,12 @@ import path from 'node:path';
 
 import markdownlintConfig from '@lintspec/markdownlint-config';
 import fg from 'fast-glob';
-import markdownlint from 'markdownlint';
+import type { Options } from 'markdownlint';
+import { readConfig } from 'markdownlint/sync';
 
 import type { Config, PKG, ScanOptions } from '../../types.js';
 
-export type MarkdownlintOptions = markdownlint.Options & { fix?: boolean };
+export type MarkdownlintOptions = Options;
 
 /**
  * Build the markdownlint options. Uses the shared config unless the project
@@ -19,10 +20,7 @@ export function getMarkdownlintConfig(
 ): MarkdownlintOptions {
   const { cwd } = opts;
 
-  const lintConfig: MarkdownlintOptions = {
-    fix: Boolean(opts.fix),
-    resultVersion: 3,
-  };
+  const lintConfig: MarkdownlintOptions = {};
 
   if (config.markdownlintOptions) {
     Object.assign(lintConfig, config.markdownlintOptions);
@@ -37,7 +35,7 @@ export function getMarkdownlintConfig(
   if (!userConfigFile) {
     lintConfig.config = markdownlintConfig;
   } else {
-    lintConfig.config = markdownlint.readConfigSync(path.resolve(cwd, userConfigFile));
+    lintConfig.config = readConfig(path.resolve(cwd, userConfigFile));
   }
 
   return lintConfig;

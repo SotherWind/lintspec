@@ -32,9 +32,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        # Engine floor is ^20.19.0 || >=22.12.0 (see Phase 5.5 in PROGRESS.md);
-        # 18 is intentionally excluded — it's EOL and require(esm) is unstable there.
-        node: ['20.19', '22', '24']
+        # Engine floor is ^22.13.0 || >=24.0.0. Node 20 is EOL and no longer covered.
+        node: ['22', '24']
         # The CLI shells out via cross-spawn and the author develops on Windows;
         # cover Windows/macOS on one Node version (no need for the full N×M grid).
         include:

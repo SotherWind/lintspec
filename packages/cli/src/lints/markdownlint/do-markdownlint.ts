@@ -1,6 +1,6 @@
 import fsExtra from 'fs-extra';
-import markdownlint, { type LintError } from 'markdownlint';
-import { applyFixes } from 'markdownlint-rule-helpers';
+import { applyFixes, type LintError } from 'markdownlint';
+import { lint as markdownlint } from 'markdownlint/promise';
 
 import type { Config, PKG, ScanOptions } from '../../types.js';
 import { MARKDOWN_LINT_FILE_EXT, MARKDOWN_LINT_IGNORE_PATTERN } from '../../utils/constants.js';
@@ -25,7 +25,7 @@ export async function doMarkdownlint(
   );
   if (files.length === 0) return [];
 
-  const results = await markdownlint.promises.markdownlint({
+  const results = await markdownlint({
     ...getMarkdownlintConfig(options, options.pkg, options.config),
     files,
   });

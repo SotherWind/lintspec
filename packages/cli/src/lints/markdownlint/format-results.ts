@@ -1,4 +1,4 @@
-import type markdownlint from 'markdownlint';
+import type { LintResults } from 'markdownlint';
 
 import type { ScanResult } from '../../types.js';
 
@@ -7,7 +7,7 @@ import type { ScanResult } from '../../types.js';
  * markdownlint findings are always warnings.
  */
 export function formatMarkdownlintResults(
-  results: markdownlint.LintResults,
+  results: LintResults,
   quiet: boolean | undefined,
 ): ScanResult[] {
   const parsedResults: ScanResult[] = [];

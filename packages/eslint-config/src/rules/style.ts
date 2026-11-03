@@ -15,7 +15,11 @@ const style: Linter.Config = {
     // Core style decisions matching fe-spec's old rules/base/style.js
     '@stylistic/indent': ['error', 2, { SwitchCase: 1 }],
     '@stylistic/semi': ['error', 'always'],
-    '@stylistic/quotes': ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
+    '@stylistic/quotes': [
+      'error',
+      'single',
+      { avoidEscape: true, allowTemplateLiterals: 'always' },
+    ],
     '@stylistic/comma-dangle': ['error', 'always-multiline'],
     '@stylistic/comma-spacing': ['error', { before: false, after: true }],
     '@stylistic/comma-style': ['error', 'last'],
@@ -46,7 +50,7 @@ const style: Linter.Config = {
     '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
     '@stylistic/computed-property-spacing': ['error', 'never'],
     '@stylistic/dot-location': ['error', 'property'],
-    '@stylistic/func-call-spacing': ['error', 'never'],
+    '@stylistic/function-call-spacing': ['error', 'never'],
     '@stylistic/linebreak-style': 'off',
     '@stylistic/quote-props': ['error', 'as-needed'],
     '@stylistic/semi-spacing': ['error', { before: false, after: true }],

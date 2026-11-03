@@ -8,6 +8,10 @@ import { defineConfig } from 'vitest/config';
  * starts and slower CI runners (Windows/macOS). The 5s default flaked under
  * concurrent load. Packages can still raise it (the CLI does, since it spawns
  * its built binary).
+ *
+ * Vite is a root devDependency because Vitest 5 requires Vite 6.4+, while
+ * Vitepress 1.x still bundles Vite 5. pnpm keeps both versions so the docs
+ * site and the test runner don't fight over a single incompatible Vite.
  */
 export default defineConfig({
   test: {
