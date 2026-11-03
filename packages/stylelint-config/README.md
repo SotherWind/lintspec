@@ -1,6 +1,6 @@
 # @lintspec/stylelint-config
 
-Shareable [Stylelint](https://stylelint.io/) configuration used by the `lintspec` toolchain. Lints **CSS**, **SCSS** and **Less**, targeting Stylelint **16/17**.
+Shareable [Stylelint](https://stylelint.io/) configuration used by the `lintspec` toolchain. Lints **CSS**, **SCSS** and **Less**, targeting Stylelint **17.6+**.
 
 ## Install
 
