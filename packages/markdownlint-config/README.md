@@ -1,6 +1,6 @@
 # @lintspec/markdownlint-config
 
-Shareable [markdownlint](https://github.com/DavidAnson/markdownlint) configuration used by the `lintspec` toolchain. Targets markdownlint **0.34+** rule names.
+Shareable [markdownlint](https://github.com/DavidAnson/markdownlint) configuration used by the `lintspec` toolchain. Targets markdownlint **0.42+** rule names.
 
 ## Install
 
@@ -31,6 +31,7 @@ Add a `.markdownlint-cli2.jsonc` (recommended) or `.markdownlint.json` at your p
 | `no-inline-html` | off | Useful for `<details>` and similar |
 | `no-duplicate-heading` | off | Multiple sections may share titles |
 | `first-line-heading` | off | YAML frontmatter conflicts |
+| `table-column-style` | off | Table alignment is handled by formatters such as Prettier |
 | `proper-names` | configured | Enforce correct capitalisation of common brand/tech names |
 
 ## License

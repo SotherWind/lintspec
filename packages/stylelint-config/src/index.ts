@@ -3,7 +3,7 @@ import type { Config } from 'stylelint';
 /**
  * Shareable Stylelint configuration for the lintspec toolchain.
  *
- * Targets Stylelint 16/17, which removed every *stylistic* rule from core.
+ * Targets Stylelint 17.6+; the *stylistic* rules were removed from core in 16.
  * Those rules now live in `@stylistic/stylelint-plugin` and are referenced here
  * with the `@stylistic/` prefix (e.g. `indentation` → `@stylistic/indentation`),
  * preserving the original fe-spec conventions.
