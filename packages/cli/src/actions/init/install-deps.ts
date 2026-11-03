@@ -35,21 +35,20 @@ export interface ProjectDepsConfig {
 
 /**
  * Version ranges to pin so npm/pnpm don't pull a major that the config doesn't
- * support yet. Mirrors `@lintspec/eslint-config`'s `peerDependencies` —
- * e.g., ESLint 10 changed `context.getFilename()` to `context.filename`, which
- * crashes `eslint-plugin-react@7` at rule-load time. Keep this in sync with
- * eslint-config's peers if those ranges bump.
+ * support yet. Mirrors the versions tested with `@lintspec/eslint-config`
+ * (its peer ranges also accept the previous major for Vue / eslint-plugin-n).
+ * Keep this in sync when the tested majors bump.
  */
 const PINNED_VERSIONS: Readonly<Record<string, string>> = {
   eslint: '^9.0.0',
   typescript: '^6.0.2',
-  'typescript-eslint': '^8.8.1',
+  'typescript-eslint': '^8.72.1',
   'eslint-plugin-react': '^7.37.1',
   'eslint-plugin-react-hooks': '^5.0.0',
   'eslint-plugin-jsx-a11y': '^6.10.0',
-  'eslint-plugin-vue': '^9.28.0',
-  'vue-eslint-parser': '^9.4.3',
-  'eslint-plugin-n': '^17.10.3',
+  'eslint-plugin-vue': '^10.12.0',
+  'vue-eslint-parser': '^10.4.1',
+  'eslint-plugin-n': '^18.5.0',
   husky: '^9.0.0',
 };
 

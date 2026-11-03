@@ -1,6 +1,6 @@
 # @lintspec/cli
 
-`lintspec` 前端编码规范的一站式 Lint 工具链。将 ESLint 9、Stylelint 17、markdownlint、Prettier 3 和 commitlint 19 封装在单个 CLI（以及一个轻量 Node API）之下，让项目用一条命令即可接入、扫描、修复并对提交做卡点。
+`lintspec` 前端编码规范的一站式 Lint 工具链。将 ESLint 9、Stylelint 17、markdownlint、Prettier 3 和 commitlint 21 封装在单个 CLI（以及一个轻量 Node API）之下，让项目用一条命令即可接入、扫描、修复并对提交做卡点。
 
 ## 安装
 
@@ -10,7 +10,7 @@ pnpm add -D @lintspec/cli
 
 各共享配置（`@lintspec/eslint-config`、`@lintspec/stylelint-config`、`@lintspec/markdownlint-config`、`@lintspec/commitlint-config`）以依赖形式一并安装——装好 CLI 即可扫描项目。
 
-> 需要 Node.js `^20.19.0 || >=22.12.0`。
+> 需要 Node.js `^22.13.0 || >=24.0.0`。
 
 ## 快速开始
 

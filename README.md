@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A monorepo of shareable linter configurations and a single CLI (`lintspec`) that initializes and runs them in a project. Built on top of the latest versions of each linter (ESLint 9 flat config, Stylelint 17, Prettier 3, commitlint 19, markdownlint 0.34).
+A monorepo of shareable linter configurations and a single CLI (`lintspec`) that initializes and runs them in a project. Built on top of the latest supported versions of each linter (ESLint 9 flat config, Stylelint 17, Prettier 3, commitlint 21, markdownlint 0.42).
 
 ## Packages
 
@@ -14,8 +14,8 @@ A monorepo of shareable linter configurations and a single CLI (`lintspec`) that
 | [`@lintspec/eslint-config`](packages/eslint-config) | Flat-config ESLint preset with 17 entry points (JS / TS × React / Vue / Node, plus `essential` softened variants) |
 | [`@lintspec/eslint-plugin`](packages/eslint-plugin) | Custom ESLint rules: `no-http-url`, `no-secret-info`, `no-broad-semantic-versioning`, `no-js-in-ts-project` |
 | [`@lintspec/stylelint-config`](packages/stylelint-config) | Stylelint 17 preset with `@stylistic/stylelint-plugin` for the rules removed from core in v15 |
-| [`@lintspec/commitlint-config`](packages/commitlint-config) | commitlint 19 preset on conventional-commits |
-| [`@lintspec/markdownlint-config`](packages/markdownlint-config) | markdownlint 0.34 preset |
+| [`@lintspec/commitlint-config`](packages/commitlint-config) | commitlint 21 preset on conventional-commits |
+| [`@lintspec/markdownlint-config`](packages/markdownlint-config) | markdownlint 0.42 preset |
 
 ## Quick start
 

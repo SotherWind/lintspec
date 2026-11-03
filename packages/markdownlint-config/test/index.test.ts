@@ -1,15 +1,11 @@
-import markdownlint from 'markdownlint';
+import type { LintResults } from 'markdownlint';
+import { lint as markdownlintLint } from 'markdownlint/promise';
 import { describe, it, expect } from 'vitest';
 
 import config from '../src/index';
 
-function lint(strings: Record<string, string>) {
-  return new Promise<markdownlint.LintResults>((resolve, reject) => {
-    markdownlint({ strings, config }, (err, result) => {
-      if (err) reject(err);
-      else resolve(result!);
-    });
-  });
+function lint(strings: Record<string, string>): Promise<LintResults> {
+  return markdownlintLint({ strings, config });
 }
 
 describe('@lintspec/markdownlint-config', () => {

@@ -5,7 +5,7 @@ import n from 'eslint-plugin-n';
  * Node.js rules via eslint-plugin-n (community-maintained fork of
  * eslint-plugin-node).
  *
- * eslint-plugin-n@17 ships its flat-config presets as single Linter.Config
+ * eslint-plugin-n@18 ships its flat-config presets as single Linter.Config
  * objects (not arrays), so we wrap and append our own overrides.
  */
 const nRecommended = n.configs?.['flat/recommended-module'] as Linter.Config | undefined;

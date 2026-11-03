@@ -1,5 +1,5 @@
 import type { ESLint } from 'eslint';
-import type markdownlint from 'markdownlint';
+import type { Options as MarkdownlintOptions } from 'markdownlint';
 import type stylelint from 'stylelint';
 
 export interface PKG {
@@ -28,7 +28,7 @@ export interface Config {
   /** Override Stylelint options. */
   stylelintOptions?: Partial<stylelint.LinterOptions>;
   /** Override markdownlint options. */
-  markdownlintOptions?: markdownlint.Options;
+  markdownlintOptions?: MarkdownlintOptions;
 }
 
 export interface ScanOptions {
